@@ -1,1 +1,7 @@
 exportPattern("^[[:alpha:]]+")
+##import
+import(vegan)
+#importFrom
+importFrom("graphics", "abline", "legend", "lines", "par", "plot")
+    importFrom("stats", "approx")
+    importFrom("utils", "tail")

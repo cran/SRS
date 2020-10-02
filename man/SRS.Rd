@@ -16,7 +16,7 @@ SRS(data, Cmin)
 Data frame (species count or OTU table) in which columns are samples and rows are the counts of species or OTUs. Only integers are accepted as data.
 }
   \item{Cmin}{
-The number of counts to which all samples will be normalized.  Cmin must be lower than or equal to the total OTU count of any sample. Typically, the total OTU count of the sample with the lowest sequencing depth is chosen as Cmin.
+The number of counts to which all samples will be normalized. Cmin must be lower than or equal to the total OTU count of any sample. Typically, the total OTU count of the sample with the lowest sequencing depth is chosen as Cmin.
 }
 }
 \details{

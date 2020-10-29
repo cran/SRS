@@ -8,7 +8,7 @@ Scaling with ranked subsampling (SRS)
 Scaling with ranked subsampling (SRS) for the normalization of ecological count data.
 }
 \usage{
-SRS(data, Cmin)
+SRS(data, Cmin, set_seed = TRUE, seed = 1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,12 @@ Data frame (species count or OTU table) in which columns are samples and rows ar
 }
   \item{Cmin}{
 The number of counts to which all samples will be normalized. Cmin must be lower than or equal to the total OTU count of any sample. Typically, the total OTU count of the sample with the lowest sequencing depth is chosen as Cmin.
+}
+  \item{set_seed}{
+Logical, if TRUE, a seed is set to enable reproducibility of SRS if OTUs with identical Cfrag as well as Cint are sampled randomly without replacement. See \link[base]{set.seed} for details. Default is TRUE.
+}
+  \item{seed}{
+Integer, specifying the seed. See \link[base]{set.seed} for details. Default is 1.
 }
 }
 \details{
@@ -31,7 +37,7 @@ Beule L, Karlovsky P. 2020. Improved normalization of species count data in ecol
 <https://doi.org/10.7717/peerj.9593>
 }
 \author{
-Lukas Beule, Petr Karlovsky
+Lukas Beule, Vitor Heidrich, Devon O'rourke, Petr Karlovsky
 }
 \examples{
 ##Samples should be arranged columnwise.

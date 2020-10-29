@@ -1,7 +1,7 @@
 SRScurve <- function(x, metric = "richness", step = 50, sample = 0, 
                      rarefy.comparison = FALSE, rarefy.repeats = 100, 
                      rarefy.comparison.legend = FALSE, xlab = "Sample Size", 
-                     ylab = "Metric", label = FALSE, col, lty, ...) {
+                     ylab = "richness", label = FALSE, col, lty, ...) {
     #function that calculates diversity indices in a series of sequencing depth/sample size
     #currently the diversity indices are limited by the available options in vegan::diversity
     #data: feature-table

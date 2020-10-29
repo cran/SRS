@@ -13,7 +13,7 @@ See Beule & Karlovsky (2020) <doi:10.7717/peerj.9593> for details regarding SRS.
 SRScurve(x, metric = "richness", step = 50, sample = 0, 
         rarefy.comparison = FALSE, rarefy.repeats = 100, 
         rarefy.comparison.legend = FALSE, xlab = "Sample Size", 
-        ylab = "Metric", label = FALSE, col, lty, ...)
+        ylab = "richness", label = FALSE, col, lty, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -70,7 +70,7 @@ colnames(example_input_data) <- c("sample_1","sample_2","sample_3")
 
 ##Default settings of SRScurve.
 SRScurve(example_input_data, metric = "richness", step = 50,
-         ylab = "Species richness", 
+         ylab = "richness", 
          col = c("#000000", "#E69F00", "#56B4E9"))
 
 ##SRScurve with comparison of SRS (solid lines) and repeated rarefying (dashed lines).
@@ -78,7 +78,7 @@ SRScurve(example_input_data, metric = "richness", step = 50,
 SRScurve(example_input_data, metric = "richness", step = 50,
          sample = 500, 
          rarefy.comparison = TRUE, rarefy.repeats = 10, rarefy.comparison.legend = TRUE,
-         ylab = "Species richness", 
-         col = c(rep("#000000",2), rep("#E69F00",2), rep("#56B4E9",2)),
+         ylab = "richness", 
+         col = c(rep(c("#000000", "#E69F00", "#56B4E9"),2)),
          lty = c(1,2))
 }

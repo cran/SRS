@@ -1,14 +1,17 @@
 SRS <- function(data, Cmin, set_seed = TRUE, seed = 1){
   if(set_seed == T){
     set.seed(seed)
-    if(Cmin > min(colSums(data))){
-      print("ERROR: Cmin > minimum library size. Please select a Cmin that is <= the minimum library size of the dataset.")
+    if(Cmin > min(colSums(data))){ #remove samples with number of reads lower than Cmin
+      samples_discarded <- colnames(data[,colSums(data) < Cmin, drop = F])
+      cat(noquote(paste(paste(length(samples_discarded),"sample(s) discarded due to low number of counts (number of counts < Cmin): ",
+                              paste(samples_discarded, collapse=', ')))))
+      data<-data[,colSums(data) >= Cmin, drop = F]
     } else {
       if(Cmin < 0){
-        print("ERROR: Cmin < 0. Please select a Cmin >= 0.")
+        print("ERROR: Cmin < 0. Please select Cmin >= 0.")
       } else {
         if(Cmin %% 1 > 0){
-          print("ERROR: Please select a Cmin without decimal places.")
+          print("ERROR: SRS accepts only integers for Cmin")
         } else {
           counter = 1 #counting the loops
           for(i in seq(1, ncol(data), 1)){
@@ -285,7 +288,7 @@ SRS <- function(data, Cmin, set_seed = TRUE, seed = 1){
               } #if the sum of the counts in the library > Cmin
             } #for all other libaries
           }
-          
+          set.seed(Sys.time())
           SRS_output <- fixed_factor_1
           SRS_output
         }

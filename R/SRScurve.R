@@ -68,8 +68,14 @@ SRScurve <- function(data, metric = "richness", step = 50, sample = 0, max.sampl
   ## sort out col and lty
   if (missing(col))
     col <- par("col")
+  else{
+    ncolors <- length(col)
+  }
   if (missing(lty))
     lty <- par("lty")
+  else{ 
+    nltypes <- length(lty)
+    }
   tot <- rowSums(x)
   S <- specnumber(x)
   ## remove empty rows or we fail
@@ -80,6 +86,7 @@ SRScurve <- function(data, metric = "richness", step = 50, sample = 0, max.sampl
     S <- S[S > 0]
   }
   nr <- nrow(x)
+  ncolors=length(col)
   ## rep col and lty to appropriate length
   if(rarefy.comparison==T & length(col)<2*nr){
     col <- rep(col, length.out = 2*nr)}
@@ -142,17 +149,36 @@ SRScurve <- function(data, metric = "richness", step = 50, sample = 0, max.sampl
       ordilabel(cbind(max(N), tail(outln,n=1)), labels=rownames(x)[ln], ...)}
   }
   if (rarefy.comparison.legend==T){
-    if (lty[3]!=lty[1]){
+    if (!missing(col)&ncolors==2&(nltypes!=2|missing(lty))){
+      if(ncol(data)%%2!=0){
       legend("bottomright", legend=c("SRS", "rarefy"),
-             col=c(col[2], col[1]),lty="solid", cex=0.8)
+             col=c(col[2], col[1]),lty="solid", cex=0.8)}
+      else{
+        legend("bottomright", legend=c("SRS", "rarefy"),
+               col=c(col[1], col[2]),lty="solid", cex=0.8)
+      }
     }
-    if (col[3]!=col[1]){
+    if (!missing(lty)&nltypes==2&(ncolors!=2|missing(col))){
+      if(ncol(data)%%2!=0){
       legend("bottomright", legend=c("SRS", "rarefy"),
-             col="black", lty=c(lty[2], lty[1]), cex=0.8)
+             col="black", lty=c(lty[2], lty[1]), cex=0.8)}
+      else{
+      legend("bottomright", legend=c("SRS", "rarefy"),
+               col="black", lty=c(lty[1], lty[2]), cex=0.8)  
+      }
     }
-    else{
+    if (!missing(lty)&!missing(col)&nltypes==2&ncolors==2){
+      if(ncol(data)%%2!=0){
       legend("bottomright", legend=c("SRS", "rarefy"),
              col=c(col[2], col[1]), lty=c(lty[2], lty[1]), cex=0.8) }
+      else{
+        legend("bottomright", legend=c("SRS", "rarefy"),
+               col=c(col[1], col[2]), lty=c(lty[1], lty[2]), cex=0.8) 
+      }
+  }
+  if((nltypes!=2|missing(lty))&(ncolors!=2|missing(col))){
+  print("rarefy.comparison.legend only works when exactly 2 colors ('col') and/or 2 line types ('lty') were chosen")
+    }
   }
   plot.base <- recordPlot()
   return (plot.base)

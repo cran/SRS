@@ -1,7 +1,7 @@
 Package: SRS
 Type: Package
 Title: Scaling with Ranked Subsampling
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c(person("Lukas", "Beule", role = c("aut", "cre"),
                     email = "lukas.beule@agr.uni-goettingen.de"),
                     person("Vitor", "Heidrich", role = "aut"),
@@ -19,5 +19,5 @@ Author: Lukas Beule [aut, cre],
 Maintainer: Lukas Beule <lukas.beule@agr.uni-goettingen.de>
 Repository: CRAN
 NeedsCompilation: no
-Packaged: 2020-11-14 09:05:02 UTC; lukasbeule
-Date/Publication: 2020-11-14 09:30:02 UTC
+Packaged: 2020-11-17 06:11:49 UTC; lukasbeule
+Date/Publication: 2020-11-17 08:40:06 UTC

@@ -6,7 +6,9 @@ SRS <- function(data, Cmin, set_seed = TRUE, seed = 1){
       cat(noquote(paste(paste(length(samples_discarded),"sample(s) discarded due to low number of counts (number of counts < Cmin): ",
                               paste(samples_discarded, collapse=', ')))))
       data<-data[,colSums(data) >= Cmin, drop = F]
-    } else {
+      SRS(data, Cmin, set_seed, seed)
+    }
+    else {
       if(Cmin < 0){
         print("ERROR: Cmin < 0. Please select Cmin >= 0.")
       } else {

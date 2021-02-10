@@ -66,13 +66,15 @@ SRScurve <- function(data, metric = "richness", step = 50, sample = 0, max.sampl
   if (!identical(all.equal(x, round(x)), TRUE))
     stop("function accepts only integers (counts)")
   ## sort out col and lty
-  if (missing(col))
+  if (missing(col)){
     col <- par("col")
+    ncolors <- 0}
   else{
     ncolors <- length(col)
   }
-  if (missing(lty))
+  if (missing(lty)){
     lty <- par("lty")
+    nltypes <- 0}
   else{ 
     nltypes <- length(lty)
     }
@@ -177,7 +179,7 @@ SRScurve <- function(data, metric = "richness", step = 50, sample = 0, max.sampl
       }
   }
   if((nltypes!=2|missing(lty))&(ncolors!=2|missing(col))){
-  print("rarefy.comparison.legend only works when exactly 2 colors ('col') and/or 2 line types ('lty') were chosen")
+  warning("rarefy.comparison.legend only works when exactly 2 colors ('col') and/or 2 line types ('lty') were chosen")
     }
   }
   plot.base <- recordPlot()

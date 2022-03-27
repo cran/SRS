@@ -1,4 +1,4 @@
-citHeader("To cite SRS in publications use:")
+citHeader("If you use this R package in your research paper, please cite as Heidrich V. et al. (2021). When referencing the SRS algorithm itself, please cite Beule L. & Karlovsky P. (2020).")
 
 citEntry(entry="Article",
          title = "Improved normalization of species count data in ecology by scaling with ranked subsampling (SRS): application to microbial communities",
@@ -14,4 +14,21 @@ citEntry(entry="Article",
          paste("Beule, L. & Karlovsky, P. (2020)", 
                "Improved normalization of species count data in ecology by scaling with ranked subsampling (SRS): application to microbial communities.",
                "PeerJ,", "8,", "e9593.", "https://doi.org/10.7717/peerj.9593.")
+)
+
+citEntry(entry="Article",
+         title = "‘SRS’ R Package and ‘q2-srs’ QIIME 2 Plugin: Normalization of Microbiome Data Using Scaling with Ranked Subsampling (SRS)",
+         author = personList(as.person("V. Heidrich"),
+			     as.person("P. Karlovsky"), 
+                             as.person("L. Beule")),
+	       journal = "Applied Sciences",
+	       volume = "11(23)",
+	       number = 11473,
+         year         = 2021,
+         url          = "https://doi.org/10.3390/app112311473",
+         
+         textVersion = 
+         paste("Heidrich, V., Karlovsky, P., & Beule, L.(2021)", 
+               "‘SRS’ R Package and ‘q2-srs’ QIIME 2 Plugin: Normalization of Microbiome Data Using Scaling with Ranked Subsampling (SRS)",
+               "Applied Sciences,", "11(23),", "11473.", "https://doi.org/10.3390/app112311473.")
 )
